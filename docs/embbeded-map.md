@@ -1,5 +1,18 @@
 # Embedding Kohesio Map
 
+## Domain Whitelisting & CORS Security
+
+Before embedding the map into your website, you must **whitelist the target domain or subdomain** to comply with **Cross-Origin Resource Sharing (CORS)** security policies. This ensures that the browser allows the map to fetch necessary data and assets from the server.
+
+To complete this procedure:
+* **Action:** Send an email to the responsible team to request whitelisting.
+* **Recipient:** [REGIO-KOHESIO@ec.europa.eu](mailto:REGIO-KOHESIO@ec.europa.eu)
+* **Details to Include:** Specify the exact domain or subdomain where the map will be embedded (e.g., `https://portal.yourdomain.eu`).
+
+> **Warning:** If the domain is not whitelisted, the map will fail to render, and the browser will trigger a CORS block error in the developer console.
+
+## Embedding the map
+
 You can embed the kohesio map into your website, just use the code snippet bellow and customize using the parameters.
 
 - Please use the parameter parentLocation=NAME_OF_YOUR_WEBSITE for us to understand from where the traffic is coming, this can be the name of the website or one key to identify your website
