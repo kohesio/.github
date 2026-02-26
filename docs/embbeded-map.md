@@ -11,14 +11,39 @@ To complete this procedure:
 
 > **Warning:** If the domain is not whitelisted, the map will fail to render, and the browser will trigger a CORS block error in the developer console.
 
+## Domain Identification
+
+For the server to correctly identify the origin of embedding requests, the website embedding the map must provide its domain through **one of the following methods**:
+
+### Option 1 — Request Headers (automatic in most browsers)
+
+Ensure your website sends either the `Referer` or the `Origin` HTTP header when loading the map. Modern browsers do this automatically for embedded content, but verify that your server or Content Security Policy does not suppress these headers (e.g., via `Referrer-Policy: no-referrer`).
+
+| Header | Example value |
+|--------|--------------|
+| `Referer` | `https://portal.yourdomain.eu/page` |
+| `Origin` | `https://portal.yourdomain.eu` |
+
+### Option 2 — `embed` Query Parameter
+
+If headers cannot be relied upon (e.g., due to a strict referrer policy), append the `embed` query parameter to the map URL with your domain as the value:
+
+```html
+<embed type="text/html"
+  src="https://kohesio.ec.europa.eu/en/map?embed=portal.yourdomain.eu"
+  width="800" height="800">
+```
+
+> **Note:** At least one of these two methods must be in place. Without a recognisable origin, the server may be unable to attribute traffic correctly and access could be restricted.
+
 ## Embedding the map
 
 You can embed the kohesio map into your website, just use the code snippet bellow and customize using the parameters.
 
-- Please use the parameter parentLocation=NAME_OF_YOUR_WEBSITE for us to understand from where the traffic is coming, this can be the name of the website or one key to identify your website
+- Please use the parameter embed=portal.yourdomain.eu for us to understand from where the traffic is coming
 
 ```html
-<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?parentLocation=NAME_OF_YOUR_WEBSITE"  width="800" height="800">
+<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?embed=portal.yourdomain.eu"  width="800" height="800">
 ```
 
 ## Languages
@@ -27,12 +52,12 @@ The kohesio map supports all EU languages:
 
 - French version
 ```html
-<embed type="text/html" src="https://kohesio.ec.europa.eu/fr/map?parentLocation=NAME_OF_YOUR_WEBSITE"  width="800" height="800">
+<embed type="text/html" src="https://kohesio.ec.europa.eu/fr/map?embed=portal.yourdomain.eu"  width="800" height="800">
 ```
 
 - Greek version
 ```html
-<embed type="text/html" src="https://kohesio.ec.europa.eu/el/map?parentLocation=NAME_OF_YOUR_WEBSITE"  width="800" height="800">
+<embed type="text/html" src="https://kohesio.ec.europa.eu/el/map?embed=portal.yourdomain.eu"  width="800" height="800">
 ```
 
 ## Parameters
@@ -58,17 +83,17 @@ You can customize the map visualization using the following parameters:
 
 ### Drill-down region
 ```html
-<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?parentLocation=NAME_OF_YOUR_WEBSITE&mapRegion=Q2556199&coords=-8.3211792431454,40.1552222"  width="800" height="800">
+<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?embed=portal.yourdomain.eu&mapRegion=Q2556199&coords=-8.3211792431454,40.1552222"  width="800" height="800">
 ```
 
 ### Drill-down region with coordinates selection
 ```html
-<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?parentLocation=NAME_OF_YOUR_WEBSITE&mapRegion=Q2556199&coords=-8.3211792431454,40.1552222"  width="800" height="800">
+<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?embed=portal.yourdomain.eu&mapRegion=Q2556199&coords=-8.3211792431454,40.1552222"  width="800" height="800">
 ```
 
 ### Drill-down into a region with heat scale
 ```html
-<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?parentLocation=NAME_OF_YOUR_WEBSITE&?heatScale=true&mapRegion=Q2556137"  width="800" height="800">
+<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?embed=portal.yourdomain.eu&?heatScale=true&mapRegion=Q2556137"  width="800" height="800">
 ```
 ## Filters
 The map supports the following filters:
