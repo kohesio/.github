@@ -2,7 +2,7 @@
 
 ## Domain Whitelisting & CORS Security
 
-Before embedding the map into your website, you must **whitelist the target domain or subdomain** to comply with **Cross-Origin Resource Sharing (CORS)** security policies. This ensures that the browser allows the map to fetch necessary data and assets from the server.
+Before embedding the map into your website, you must **whitelist the target domain or subdomain** to comply with **Cross-Origin Resource Sharing (CORS)** security policies. This ensures that the browser allows the map to fetch necessary data and assets from the server. We also reccommend to first test your map configuration in the regular Kohesio website UI first as it wil give you immediate feedback if the constructed filters work as expected (https://kohesio.ec.europa.eu/en/map?)
 
 To complete this procedure:
 * **Action:** Send an email to the responsible team to request whitelisting.
@@ -81,9 +81,9 @@ You can customize the map visualization using the following parameters:
 <embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?cci=2014PL16M2OP005,2014PL16M2OP008"  width="800" height="800">
 ```
 
-### Drill-down region
+### Filter on region
 ```html
-<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?embed=portal.yourdomain.eu&mapRegion=Q2556199&coords=-8.3211792431454,40.1552222"  width="800" height="800">
+<embed type="text/html" src="https://kohesio.ec.europa.eu/en/map?embed=portal.yourdomain.eu&country=France&region=Normandy"  width="800" height="800">
 ```
 
 ### Drill-down region with coordinates selection
